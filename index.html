@@ -11,6 +11,7 @@
 		<link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
 		<link rel="stylesheet" href="css/reset.css" type="text/css">
 		<link rel="stylesheet" href="css/general.css" type="text/css">
+		<link href="http://fonts.googleapis.com/css?family=Lato:300,400" rel="stylesheet" type="text/css">
 		<script src="js/vendor/modernizr-2.6.2.min.js"></script>
 	</head>
 	<body>
@@ -22,5 +23,71 @@
 			&nbsp;<span>_</span><span>/</span><span>\</span><span>/</span><span>\</span><span>/</span><span>\</span><span>/</span><span>\</span><span>/</span><span>\</span><span>_</span><span>_</span><span>_</span><span>_</span><span>/</span><span>\</span><span>/</span><span>\</span><span>_</span><span>_</span><span>/</span><span>\</span><span>/</span><span>\</span><span>_</span><span>_</span><span>/</span><span>\</span><span>/</span><span>\</span><span>/</span><span>\</span><span>/</span><span>\</span><span>/</span><span>\</span><span>_</span><span>_</span><span>_</span><span>_</span><span>/</span><span>\</span><span>/</span><span>\</span><span>/</span><span>\</span><span>/</span><span>\</span><span>_</span><span>_</span><span>/</span><span>\</span><span>/</span><span>\</span><span>_</span><span>_</span><span>/</span><span>\</span><span>/</span><span>\</span><span>_</span><span>_</span><span>/</span><span>\</span><span>/</span><span>\</span><span>/</span><span>\</span><span>/</span><span>\</span><span>/</span><span>\</span><span>_</span>&nbsp;&nbsp;&nbsp;&nbsp;<br/>
 			<span>_</span><span>_</span><span>_</span><span>_</span><span>_</span><span>_</span><span>_</span><span>_</span><span>_</span><span>_</span><span>_</span><span>_</span><span>_</span><span>_</span><span>_</span><span>_</span><span>_</span><span>_</span><span>_</span><span>_</span><span>_</span><span>_</span><span>_</span><span>_</span><span>_</span><span>_</span><span>_</span><span>_</span><span>_</span><span>_</span><span>_</span><span>_</span><span>_</span><span>_</span><span>_</span><span>_</span><span>_</span><span>_</span><span>_</span><span>_</span><span>_</span><span>_</span><span>_</span><span>_</span><span>_</span><span>_</span><span>_</span><span>_</span><span>_</span><span>_</span><span>_</span><span>_</span><span>_</span><span>_</span><span>_</span><span>_</span><span>_</span><span>_</span><span>_</span><span>_</span><span>_</span><span>_</span><span>_</span><span>_</span><span>_</span><span>_</span><span>_</span><span>_</span><span>_</span><span>_</span><span>_</span><span>_</span><span>_</span><span>_</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 		</div>
+		<div class="container">
+			<div class="cube">
+				<div class="side top">
+				</div>
+				<div class="side right">
+				</div>
+				<div class="side left">
+				</div>
+			</div>
+		</div>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
+	<script type="text/javascript">
+		Soup = function( el ) {
+			"use strict";
+
+			// Save our a referece to our container element.
+			this.$el = $( el );
+
+			// Create a temporary tag and find its width and height.
+			var a = $( "<span class=\"soup\">a</span>" );
+			this.$el.append( a );
+			var charHeight = parseInt( a.css( "line-height" ), 10 );
+			var charWidth = a.width();
+			a.remove();
+
+			this.width = this.$el.width()
+			this.height = this.$el.height()
+			this.columns = Math.ceil( this.width / charWidth );
+			this.rows = Math.ceil( this.height / charHeight );
+
+			for ( var i = 0, l = this.rows; i < l; i++ ) {
+				for ( var j = 0, k = this.columns; j < k; j++ ) {
+					// Find the distance of the center of the grid item from the center of $el in px.
+					var distance = Math.sqrt( Math.pow( ( ( this.rows / 2 ) - ( i + 0.5 ) ) * charHeight, 2 ) + Math.pow( ( ( this.columns / 2 ) - ( j + 0.5 ) ) * charWidth, 2 ) );
+					if ( Math.round( Math.random() / ( distance / ( Math.random() * 300 ) ) ) ) {
+						var r = Math.floor( Math.random() * 256 );
+						var g = Math.floor( Math.random() * 256 );
+						var b = Math.floor( Math.random() * 256 );
+						var span = $( "<span class=\"soup soup--hide\"></span>" ).css({
+							// "border-radius": ( Math.max( charHeight, charWidth ) / 2 ) + "px",
+							// "box-shadow": "0 0 130px 200px rgb(" + r + ", " + g + ", " + b + ")",
+							"left": "50%",
+							"margin-left": ( j * charWidth ) - ( this.width / 2 ) + "px",
+							"margin-top": ( i * charHeight ) - ( this.height / 2 ) + "px",
+							"position": "absolute",
+							"top": "50%",
+							"transition-delay": Math.random() * 4 + "s"
+						}).html( "I<3M" );
+						this.$el.append( span );
+					}
+				}
+			}
+			setTimeout( function() {
+				return $( ".soup" ).removeClass( "soup--hide" );
+			}, 0 );
+
+			return this;
+
+		}
+
+		soup = new Soup( "body" );
+
+	</script>
+
+
+
 	</body>
 </html>
