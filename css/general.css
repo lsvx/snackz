@@ -1,11 +1,73 @@
 body {
-    background: #fffcfb;
-    font-family: 'Lato', sans-serif;
-	height: 100%;
+	background: #FFFCFB;
+	color: #0c0f26;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 300;
+	min-height: 100%;
 	position: absolute;
 	width: 100%;
 }
+header {
+	background: #FFFCFB;
+	border-bottom: 2px solid #EDEAEA;
+	height: 5em;
+	padding-top: 1em;
+	width: 100%;
+}
+.title {
+	float: left;
+	font-size: 2.5em;
+    font-weight: 500;
+    line-height: 1;
+}
+.title-link {
+	border: 1px solid #FFFCFB;
+	border-radius: 3px;
+	color: #FF637D;
+	cursor: pointer;
+	display: block;
+    padding: .25em;
+
+	-webkit-transition: all 0.2s ease-in-out;
+	-moz-transition: all 0.2s ease-in-out;
+	-ms-transition: all 0.2s ease-in-out;
+	-o-transition: all 0.2s ease-in-out;
+	transition: all 0.2s ease-in-out;
+}
+.title-link:hover {
+	border: 1px solid #FF637D;
+}
+.nav, .nav-list, .nav-item {
+	float: right;
+}
+.nav {
+	margin-top: 1.375em;
+}
+.nav-item {
+	display: block;
+	font-size: 1.5em;
+	margin-left: 2em;
+}
+.nav-link {
+	border-bottom: 2px solid #FFFCFB;
+	cursor: pointer;
+	text-decoration: none;
+
+	-webkit-transition: all 0.2s ease-in-out;
+	-moz-transition: all 0.2s ease-in-out;
+	-ms-transition: all 0.2s ease-in-out;
+	-o-transition: all 0.2s ease-in-out;
+	transition: all 0.2s ease-in-out;
+}
+.nav-link:hover {
+	border-bottom: 2px solid #FF637D;
+}
+.foodshot {
+	display: block;
+	max-width: 100%;
+}
 .snackz {
+	display: none;
 	cursor: default;
 	margin-top: -4.5em;
 	position: absolute;
@@ -18,6 +80,7 @@ body {
 	font: .75em/1.5 "Courier";
 	font-weight: bold;
 	opacity: 1;
+	
 	-webkit-transition: all 0.5s ease-in-out;
 	-moz-transition: all 0.5s ease-in-out;
 	-ms-transition: all 0.5s ease-in-out;
@@ -28,6 +91,7 @@ body {
 	opacity: 0;
 }
 .container {
+	display: none;
 	height: 50em;
 	left: 50%;
 	margin-left: -25em;
@@ -97,3 +161,62 @@ body {
 	-o-transform: rotate3d( 0, 1, 0, -90deg ) translate3d( 0, 0, 25em );
 	transform: rotate3d( 0, 1, 0, -90deg ) translate3d( 0, 0, 25em );
 }
+
+/* -------------------------------------------------------------- 
+
+   == STRUCTURE: ========================
+    * Page width:            1088 px
+    * Number of columns:     6
+    * Column width:          128 px
+    * Margin width:          64 px
+   ======================================
+   
+-------------------------------------------------------------- */
+
+/* A wrapper for all the columns. */
+.wrapper {
+  max-width: 68em;
+  margin: 0 auto;
+  padding: 0 1em;
+}
+.wrapper:before, .wrapper:after {
+	content: "";
+	display: table;
+}
+.wrapper:after {
+	clear: both;
+}
+
+/* Sets up basic grid floating and margin. */
+.col {
+	float: left;
+	margin-right: 0.05882352941176%;
+}
+
+/* The last column in a row needs this class. */
+.col:last-child { 
+	margin-right: 0;
+}
+
+/* Use these classes to set the width of a column. */
+.one  { width: 0.11764705882353%;}
+.two  { width: 0.29411764705882%;}
+.three  { width: 0.47058823529412%;}
+.four  { width: 0.64705882352941%;}
+.five  { width: 0.82352941176471;}
+.six  { width: 100%; margin: 0;}
+
+/* Add these to a column to append empty cols. */
+.right-1  { padding-right: 0.17647058823529%;}
+.right-2  { padding-right: 0.35294117647059%;}
+.right-3  { padding-right: 0.52941176470588%;}
+.right-4  { padding-right: 0.70588235294118%;}
+.right-5  { padding-right: 0.88235294117647%;}
+
+/* Add these to a column to prepend empty cols. */
+.left-1  { padding-left: 0.17647058823529%;}
+.left-2  { padding-left: 0.35294117647059%;}
+.left-3  { padding-left: 0.52941176470588%;}
+.left-4  { padding-left: 0.70588235294118%;}
+.left-5  { padding-left: 0.88235294117647%;}
+
