@@ -4,14 +4,13 @@ body {
     font-family: 'Raleway', sans-serif;
     font-weight: 300;
 	height: 100%;
-	overflow-y: hidden;
 	position: absolute;
 	width: 100%;
 }
 header {
-	/*background: #FFFCFB;*/
-	/*border-bottom: 2px solid #EDEAEA;*/
+	background: #FFFCFB;/* Fallback */
 	background: rgba(255, 252, 251, .8);
+	border-bottom: 2px solid #EDEAEA;/* Fallback */
 	border-bottom: 2px solid rgba(237, 234, 234, .8);
 	height: 5em;
 	padding-top: 1em;
@@ -119,13 +118,10 @@ header {
 	-o-transform: translate3d( 0, 0, -45em ) rotateY( -90deg );
 	transform: translate3d( 0, 0, -45em ) rotateY( -90deg );
 }
-.show--right .front {
-	overflow-y: hidden;
-}
 .side {
 	height: 100%;
 	overflow-y: scroll;
-	/*padding-top: 6em;*/
+	padding-top: 6em;
 	position: absolute;
 	top: 0;
 	width: 100%;
@@ -135,11 +131,9 @@ header {
 	-ms-backface-visibility: hidden;
 	-o-backface-visibility: hidden;
 	backface-visibility: hidden;
-}
-.side-spacer {
-	display: block;
-	height: 6em;
-	width: 100%;
+	
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
 }
 .top {
 	background: #3E8872;
