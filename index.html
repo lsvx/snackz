@@ -5,7 +5,7 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 		<title>SNACKZ</title>
 		<meta name="description" content="Snackz is a project dedicated foodz.">
-		<meta name="viewport" content="width=device-width; initial-scale=1.0">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<meta name="format-detection" content="telephone=no">
 		<meta http-equiv="x-rim-auto-match" content="none">
 		<link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
@@ -16,8 +16,10 @@
 	</head>
 	<body>
 		<header>
-			<div class="wrapper">
+			<div class="wrapper header-stay">
 				<h1 class="title"><a class="title-link">Snackz</a></h1>
+			</div>
+			<div class="wrapper header-leave">
 				<h2 class="intro">is a project dedicated to teh foodz.</h2>
 				<nav class="nav">
 					<ul class="nav-list">
@@ -27,25 +29,34 @@
 				</nav>
 			</div>
 		</header>
-		<div class="cube-container">
-			<div class="cube">
+		<div class="D3">
+			<div class="spline show--front">
 				<main class="front side">
-					<img class="foodshot" src="media/rice.jpg" />
-					<img class="foodshot" src="media/donut.jpg" />
+					<div class="side-container">
+						<img class="foodshot" src="media/rice.jpg" />
+						<img class="foodshot" src="media/donut.jpg" />
+					</div>
 				</main>
 				<section class="about right side">
-					<img class="foodshot" src="media/maya_n_tessa_upsidedown.jpg" />
+					<div class="side-container">
+						<img class="foodshot" src="media/maya_n_tessa_upsidedown.jpg" />
+					</div>
 				</section>
 			</div>
 		</div>
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
 		<script type="text/javascript">
+		"use strict";
+		(function ( $, window, undefined ) {
+			// Define click handlers for navigation.
 			$( ".nav-link--about" ).click( function(e) {
-				$( ".cube" ).addClass( "show--right" );
+				$( ".spline" ).attr( "class", "spline show--right" );
 			});
 			$( ".title" ).click( function(e) {
-				$( ".cube" ).removeClass( "show--right" );
+				$( ".spline" ).attr( "class", "spline show--front" );
+			    $( ".side" ).animate({scrollTop:0});
 			});
+		} )( jQuery, window );
 		</script>
 	</body>
 </html>
