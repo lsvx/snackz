@@ -139,6 +139,8 @@ header {
 	top: 0;
 	width: 100%;
 
+	-webkit-overflow-scrolling: touch;
+
 	-webkit-transform-origin: left;
 	-moz-transform-origin: left;
 	-ms-transform-origin: left;
