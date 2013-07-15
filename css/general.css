@@ -12,18 +12,21 @@ header {
 	background: #FFFCFB;/* Fallback */
 	background: rgba(255, 252, 251, .8);
 	height: 6em;
+	overflow: hidden;
 	width: 100%;
 }
 .header-stay, .header-leave {
 	height: 5em;
+	overflow: hidden;
 	padding-top: 1em;
 	position: relative;
 	top: -100%;
+	z-index: 1 ;
 }
 .header-stay {
 	pointer-events: none;
 	top: auto;
-	z-index: 1 ;
+	z-index: 2 ;
 }
 .title {
 	float: left;
@@ -89,7 +92,6 @@ header {
 .D3 {
 	height: 100%;
 	left: 0;
-	pointer-events: none;
 	position: absolute;
 	top: 0;
 	width: 100%;
@@ -155,7 +157,6 @@ header {
 .side-container {
 	border-top: 2px solid #EDEAEA;/* Fallback */
 	border-top: 2px solid rgba(237, 234, 234, .8);
-	pointer-events: auto;
 }
 .front {
 }

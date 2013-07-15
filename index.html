@@ -47,15 +47,34 @@
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
 		<script type="text/javascript">
 		"use strict";
-		(function ( $, window, undefined ) {
+		(function( $, window, undefined ) {
+			// Define the default active pane.
+			var activePane = 0;
 			// Define click handlers for navigation.
 			$( ".nav-link--about" ).click( function(e) {
 				$( ".spline" ).attr( "class", "spline show--right" );
+			    $( ".side" ).animate({scrollTop:0});
+				activePane = 1;
 			});
 			$( ".title" ).click( function(e) {
 				$( ".spline" ).attr( "class", "spline show--front" );
 			    $( ".side" ).animate({scrollTop:0});
+			    activePane = 0;
 			});
+
+			// Define scroll handler to hide right part of navigation.
+			$( ".side" ).on( "scroll", function(e) {
+				var fs = parseInt( $( ".side" ).eq( activePane ).css( "font-size"), 10 );
+				var position = $(".side-container").eq( activePane ).position();
+				var padding = parseInt( $( ".header-leave" ).css( "padding-top" ), 10 );
+				if ( position.top / fs < 6 && position.top / fs >= 1 ) {
+					$( ".header-leave" ).height( position.top - padding );
+				} else if (position.top / fs < 1 && $( ".header-leave" ).height() ) {
+					$( ".header-leave" ).height( 0 );
+				} else if (position.top / fs >= 6 && $( ".header-leave" ).height() !== 5 * fs ) {
+					$( ".header-leave" ).height( 5 * fs );
+				}
+			})
 		} )( jQuery, window );
 		</script>
 	</body>
